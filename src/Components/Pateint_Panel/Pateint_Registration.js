@@ -7,15 +7,16 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 const Sign = () => {
+    const nav = useNavigate();
     const [id, setId] = useState();
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [pass, setPas] = useState();
     const user = { id, name, email, pass };
-    const nav = useNavigate();
+  
 
     const handleClick2 = () => {
-        nav('/Login');
+        nav('/Patient_Login_Page');
     }
     const handleClick = () => {
         nav('/Home');
@@ -51,13 +52,15 @@ const Sign = () => {
     const DATA = () => {
         HandelSubmit();
 
-        fetch('http://localhost:3008/users', {
+        fetch('http://localhost:3008/Pateint', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(user)
         }).then(resp => resp.json());
+  
+  
     }
     return (
         <form className='from-control'>
@@ -119,9 +122,10 @@ const Sign = () => {
                     <Button   variant="secondary" style={{ marginTop: "20px" }} type="submit" onClick={DATA} >
                         Submit
                     </Button>
-
-                    <Link to="/Login">
-                        <Button variant="dark" style={{ marginTop: "20px" }}>Login </Button></Link>
+{/* 
+                    <Link to="/Login"> */}
+                        <Button variant="dark" style={{ marginTop: "20px" }} onClick={handleClick2} >Login </Button>
+                        {/* </Link> */}
                 </Card.Body>
             </Card>
         </form>

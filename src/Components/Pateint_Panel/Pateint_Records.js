@@ -14,7 +14,7 @@ const Pateint_Records=()=>{
 <nav>
     {/* <NavLink style={NavLinkCSS} to ='/User'> User</NavLink>
     <NavLink style={NavLinkCSS} to ='/Contact2'> Contact2</NavLink> */}
-  <NavLink style={NavLinkCSS} to ='/Sign'>Pateint Records</NavLink>
+  <NavLink style={NavLinkCSS} to ='/Patient'>Pateint Records</NavLink>
   {/* <NavLink style={NavLinkCSS} to ='/User' >User</NavLink>
   <NavLink style={NavLinkCSS} to ='/Contact2'>Contact</NavLink>
   <NavLink style={NavLinkCSS} to ='/Address'>Address</NavLink>

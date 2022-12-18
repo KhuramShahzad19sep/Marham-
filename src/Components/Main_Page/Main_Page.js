@@ -5,18 +5,18 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import Doctor_Loging from './Doctor';
+import Doctor_Loging from '../Doctor_Panel/Doctor';
 
 
 const User_Page=()=>{
     const nav= useNavigate();
     const nav2= useNavigate();
     const handleClick2=()=>{
-        nav('/Sign');
+        nav('/Patient_Sign_Up_Page');
      }
     
      var handleClick3=()=>{
-      nav2('/Login');
+      nav2('/Hospital_Login');
    }
 
     return(

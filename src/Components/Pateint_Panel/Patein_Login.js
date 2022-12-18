@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
+// import { useFormik } from 'formik';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useRef } from "react";
-const Hospital_Login = () => {
+
+
+
+const Patient_Loging = () => {
   const [database, setDatabase] = useState([]);
+  
+ 
  const nav=useNavigate();
  const Click=()=>{
   nav('/Home')
@@ -13,19 +19,24 @@ const Hospital_Login = () => {
   const Submit=()=>{
   if(email.current.value=="khuram.21.09.19@gmail.com"&&password.current.value=="sam19oct"){
     localStorage.setItem("setemail","khuram.21.09.19@gmail.com");
-    localStorage.setItem("Pass","sam19oct")
+    localStorage.setItem("Pass","Khuram19oct")
   Click();
   }else{
     alert("Please Entre true pass word")
   }
   }
-
-  
-  return (
+  const navigate = useNavigate();
+  const handleClick = () =>{
     
+    
+    navigate("Doctor_Home_Page")
+  };
+ 
+  return (
+  
     <div className="form mt-3">
       <h2 className="text-center">Login</h2>
-      <form>
+      <form onSubmit={Submit}>
       <div className="form-body">
         <div className="email">
           <label className="form__label" for="email">
@@ -55,10 +66,8 @@ const Hospital_Login = () => {
         <button
           type="submit"
           class="btn btn-success"
-          onClick={Submit}
-        >
-          
-          Log in
+          >
+           Log in
         </button>
         {/* <p>
           <Link to="/Sign">Signup Here</Link>
@@ -68,4 +77,4 @@ const Hospital_Login = () => {
     </div>
   );
 };
-export default Hospital_Login;
+export default Patient_Loging;

@@ -3,11 +3,14 @@ import Button from "react-bootstrap/esm/Button";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 const Add_Doctors=()=>{
     const[doctor, setDoctor]= useState({
         name:"",
         email:""
     })
+     const [startdate, setStartDate] = useState(new Date());
     let NAV=useNavigate();
    
     const NavLinkCSS=({isActive})=>{
@@ -33,12 +36,13 @@ const Add_Doctors=()=>{
         
         <form className='from-control'>
             
+    
             <div className='form-control'>
             <h2 className='text-center'> Add Doctor</h2>
-                
+           
                 <div className='form-body'>
                     <div className='form-control'>
-                        
+                   
                         <input className='form-control '
                             placeholder='Name'
                             type="text"
@@ -61,7 +65,10 @@ const Add_Doctors=()=>{
                  
                 </div>
                 <NavLink style={NavLinkCSS} to ='/Home'>
-                <Button onClick={onSubmit} >Submit</Button>
+                <Button onClick={onSubmit} >Submit
+                <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} />
+                </Button>
+                
                 </NavLink>
                 
             </div>

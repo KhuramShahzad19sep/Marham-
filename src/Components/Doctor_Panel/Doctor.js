@@ -3,8 +3,14 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useRef } from "react";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const Doctor_Loging = () => {
   const [database, setDatabase] = useState([]);
+  
+ 
  const nav=useNavigate();
  const Click=()=>{
   nav('/Home')
@@ -24,12 +30,13 @@ const Doctor_Loging = () => {
   const handleClick = () =>{
     
     
-    navigate("/Home")
+    navigate("Doctor_Home_Page")
   };
-  
+ 
   return (
-    
+  
     <div className="form mt-3">
+     <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} />
       <h2 className="text-center">Login</h2>
       <form onSubmit={Submit}>
       <div className="form-body">

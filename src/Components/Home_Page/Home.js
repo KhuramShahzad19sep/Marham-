@@ -4,22 +4,39 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from "react-bootstrap/esm/Button";
 import axios from 'axios';
-import Pateint_Records from "./Pateint_Records";
-
+// import Pateint_Records from "../Pateint_Records";
+import Pateint_Records from "../Pateint_Panel/Pateint_Records";
 import { useParams } from "react-router-dom";
 const User_Home = () => {
   const {id}=useParams();
   const [usersList, setUsersList] = useState([]);
   const [name, setUsername] = useState("");
   
+  // useEffect(() => {
+    
+  //   loadUser();
+   
+    
+  // }, []);
+// fetch("http://localhost:3008/users")
+    //   .then((resp) => resp.json())
+    //   .then((info) => setUsersList(info));
+  
   useEffect(() => {
     // fetch("http://localhost:3008/users")
     //   .then((resp) => resp.json())
     //   .then((info) => setUsersList(info));
-    loadUser();
+    loadUse2();
+   
+    
   }, []);
   const loadUser= async ()=>{
     const result =await axios.get(`http://localhost:3008/users`);
+  setUsersList(result.data);
+  }
+
+  const loadUse2= async ()=>{
+    const result =await axios.get(`http://localhost:3008/Pateint`);
   setUsersList(result.data);
   }
   // const loadUser= async ()=>{
@@ -75,11 +92,13 @@ const User_Home = () => {
             </tr>
             </th>
             <th>
-            
-            <tr>Action
+            Edit
+            <tr>
             </tr>
             </th>
-           
+            <th>
+           <tr>Delate</tr>
+            </th>
            
         </thead>
         
@@ -102,7 +121,7 @@ const User_Home = () => {
         </button> */}
        
         <button className="btn btn-dark col-md-3">
-        <Link to="/User">Log out</Link> 
+        <Link to="/Main_Page">Log out</Link> 
         </button>
        
        
